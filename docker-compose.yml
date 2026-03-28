@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGO_URI=${MONGO_URI}
+      - PORT=3000
+      - NODE_ENV=development
+      - CORS_ORIGIN=*
+    depends_on:
+      - mongodb
+    networks:
+      - cityseva-network
+    restart: unless-stopped
+
+  mongodb:
+    image: mongo:6.0
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password
+      - MONGO_INITDB_DATABASE=cityseva
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - cityseva-network
+    restart: unless-stopped
+
+volumes:
+  mongodb_data:
+
+networks:
+  cityseva-network:
+    driver: bridge

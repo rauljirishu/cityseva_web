@@ -1,0 +1,56 @@
+# Environment variables (never commit .env files)
+.env
+.env.local
+.env.*.local
+
+# Flutter build outputs
+/build/
+/flutter_export_environment.sh*
+
+# Compiled Python bytecode
+*.pyc
+*.pyo
+__pycache__/
+
+# Node dependencies
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# IDE specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Frontend build outputs
+/cityseva/build/
+/cityseva/.dart_tool/
+/cityseva/.packages
+/cityseva/*.iml
+/cityseva/.gradle
+/cityseva/local.properties
+
+# Backend  
+backend/node_modules/
+backend/dist/
+backend/.firebase/
+
+# Logs
+*.log
+logs/
+
+# Package lock files (optional - depends on your git strategy)
+# package-lock.json
+# pubspec.lock
+
+# Temp files
+*.tmp
+*.bak
+\$*
+
+# OS
+Thumbs.db
+.DS_Store
